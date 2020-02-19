@@ -13,7 +13,9 @@ faces = face_cascade.detectMultiScale(gray_img, scaleFactor = 1.05, minNeighbors
 
 for x, y, w, h in faces:
     cv2.rectangle(img, (x,y), (x+w, y+h), (0, 255, 0), 3)
+    
+resize = cv2.resize(img, (int(img.shape[1]/3), int(img.shape[0]/3))) #if img is too big
 
-cv2.imshow("face", img)
+cv2.imshow("face", resize)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
